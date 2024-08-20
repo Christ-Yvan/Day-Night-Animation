@@ -19,13 +19,17 @@ body {
     height: 100vh;
     margin: 0;
     overflow: hidden;
+    position: relative;
 }
 
 .sky {
     width: 100%;
     height: 100%;
     background-color: var(--sky-day);
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
     overflow: hidden;
     transition: background-color 3s linear;
 }
@@ -38,6 +42,7 @@ body {
     bottom: -50px;
     left: 50%;
     transform: translateX(-50%);
+    z-index: 2;
 }
 
 .sun {
@@ -93,7 +98,8 @@ body {
     animation: moon-move 20s infinite linear;
 }
 
-.background-buildings, .foreground-buildings {
+.background-buildings,
+.foreground-buildings {
     width: 100%;
     height: 100%;
     display: flex;
@@ -101,4 +107,36 @@ body {
     justify-content: space-evenly;
     position: absolute;
     top: 0;
+    left: 0;
+    z-index: 3;
+}
+
+.foreground-buildings {
+    z-index: 4;
+}
+
+.background-buildings div,
+.foreground-buildings div {
+    position: relative;
+    background-color: var(--building-color1);
+    width: 50px;
+    height: 200px;
+}
+
+.building-wrap {
+    display: flex;
+    flex-direction: column;
+}
+
+.bb1, .bb2, .bb3, .bb4,
+.fb1, .fb2, .fb3, .fb4, .fb5, .fb6 {
+    background-color: var(--building-color2);
+}
+
+.bb1-window, .bb4-window,
+.fb2-window, .fb3-window, .fb4-window {
+    background-color: var(--window-color1);
+    width: 20px;
+    height: 20px;
+    margin: 2px;
 }
