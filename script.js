@@ -17,4 +17,4 @@ function toggleDayNight() {
     isDay = !isDay;
 }
 
-setInterval(toggleDayNight, 20000); // Change every 20 seconds
+setInterval(toggleDayNight, 20000); 
