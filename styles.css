@@ -33,7 +33,30 @@ body {
     overflow: hidden;
     transition: background-color 3s linear;
 }
-
+#image {
+    position: absolute;
+    width: 83vw;          
+    bottom: -13%;            
+    left: 50%;           
+    transform: translateX(-50%); 
+    z-index: 3;
+}
+#superhero{
+    position: absolute;
+    width: 15%;          
+    top: 5%;            
+    left: -5%;           
+    z-index: 3;
+    animation: 15s linear 0s infinite  LeftRight;
+}
+#myName{
+    position: absolute;
+    width: 10%;          
+    top: 20%;            
+    left: -4%;           
+    z-index: 3;
+    animation: 15s linear 0s infinite  LeftRightName;
+}
 .sun, .moon {
     width: 100px;
     height: 100px;
@@ -142,4 +165,95 @@ body {
     width: 20px;
     height: 20px;
     margin: 2px;
+}
+
+/* Stars */
+.stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Prevent interaction with stars */
+    display: none; /* Hidden during the day */
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: twinkle 2s infinite ease-in-out;
+}
+
+/* Clouds */
+.clouds {
+    position: absolute;
+    top: 20%;
+    width: 100%;
+    height: 30%;
+    pointer-events: none; /* Prevent interaction with clouds */
+    overflow: hidden;
+    z-index: 2;
+    display: none; /* Hidden at night */
+}
+
+.cloud {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.8);
+    width: 200px;
+    height: 100px;
+    border-radius: 100px;
+    filter: blur(10px);
+    animation: move-clouds 60s linear infinite;
+}
+
+/* Twinkling effect for stars */
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes LeftRight {
+    0% {
+      transform: translatex(-10vh);
+    }
+    50% {
+      transform: translatex(130vw);
+    }
+    51%{
+      transform: translatex(110vw)scaleX(-1);
+    }
+    100%{
+      transform: translatex(-110vw)scaleX(-1);
+    }
+  }
+  @keyframes LeftRightName {
+    0% {
+      transform: translatex(-10vh);
+    }
+    50% {
+      transform: translatex(130vw);
+    }
+    51%{
+      transform: translatex(110vw);
+    }
+    100%{
+      transform: translatex(-110vw);
+    }
+  }
+/* Cloud movement */
+@keyframes move-clouds {
+    0% {
+        left: -200px;
+    }
+    100% {
+        left: 100%;
+    }
 }
